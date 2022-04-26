@@ -5,3 +5,7 @@ packages.tar.gz
 *.csv
 *.csv.*
 *.log
+
+log/
+error/
+output/

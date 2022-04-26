@@ -12,19 +12,25 @@ fi
 #     | sort -t , -n -k 23 \
 #     | cut -d, -f14,16,17,21,23,28 > data_sorted.csv
 
-nProcessors=50
-data="data.csv"
-nDataLines=$(wc -l < $data)
-nLinesPerSplitFile=$(($nDataLines / $nProcessors))
-remainder=$(($nDataLines % $nProcessors))
-if [[ $remainder > 0 ]]; then
-  nLinesPerSplitFile=$(($nLinesPerSplitFile + 1))
+FILE_SEP=./data.csv.00
+if test -f "$FILE_SEP";
+then
+    echo "The split file $FILE_SEP is already obtained."
+    # rm data.csv
+    sed -i '1d' $FILE_SEP
+else
+  nProcessors=50
+  data="data.csv"
+  nDataLines=$(wc -l < $data)
+  nLinesPerSplitFile=$(($nDataLines / $nProcessors))
+  remainder=$(($nDataLines % $nProcessors))
+  if [[ $remainder > 0 ]]; then
+    nLinesPerSplitFile=$(($nLinesPerSplitFile + 1))
+  fi
+  split -d -l $nLinesPerSplitFile $data "$data."
 fi
-split -d -l $nLinesPerSplitFile $data "$data."
 
-# FILE_SEP=./data.csv.00
-# if test -f "$FILE_SEP";
-# then
-#     echo "The split file $FILE_SEP is already obtained."
-#     rm data.csv
-# fi
+mkdir log
+mkdir error
+mkdir output
+

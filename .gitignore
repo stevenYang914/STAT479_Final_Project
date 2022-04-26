@@ -1,0 +1,7 @@
+.bash_history
+linuxVersion.txt
+packages.tar.gz
+
+*.csv
+*.csv.*
+*.log

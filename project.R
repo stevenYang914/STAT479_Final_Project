@@ -1,13 +1,10 @@
-                                        # Oliver Chen,
-                                        # ychen939@wisc.edu
-
 rm(list=ls())
 
 args = (commandArgs(trailingOnly=TRUE))
 if (length(args) == 1) {
     data_num = args[1]
 } else {
-    cat('usage: Rscript myscript.R <template spectrum> <data directory>\n', file=stderr())
+    cat('usage: Rscript myscript.R <data number>\n', file=stderr())
     stop()
 }
 
@@ -34,6 +31,10 @@ var <- c('source_origin_time', 'source_latitude',
          'source_longitude', 'source_depth_km', 
          'source_distance_km','source_magnitude')
 df <- data[, var]
+df <- df[!(df$source_origin_time == "" | df$source_latitude == "" | 
+        df$source_longitude == "" | df$source_depth_km == "" |
+        df$source_distance_km == "" | df$source_magnitude == ""), ]
+
 # df <- data[, c(14, 16, 17, 21, 23, 28)]
 # colnames(df) <- c('source_origin_time','source_latitude','source_longitude',
 #     'source_depth_km','source_magnitude','source_distance_km')

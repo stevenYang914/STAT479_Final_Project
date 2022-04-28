@@ -5,6 +5,7 @@ packages.tar.gz
 *.csv
 *.csv.*
 *.log
+job2_*.txt
 
 log/
 error/

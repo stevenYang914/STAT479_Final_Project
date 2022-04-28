@@ -1,0 +1,22 @@
+# Before running this with "condor_submit project_job2.sub", the
+# directories log, error, and output must exist.
+
+universe = vanilla
+log    = log/job2-chtc_$(Cluster)_$(Process).log
+error  = error/job2-chtc_$(Cluster)_$(Process).err
+output = output/job2-chtc_$(Cluster)_$(Process).out
+
+executable = ./project_job2.sh
+
+# The two arguments below are:
+arguments = $(data_file)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/R402.tar.gz, packages.tar.gz, ./job1_$(data_file).csv, project_q3.R
+
+request_cpus = 2
+request_memory = 2GB
+request_disk = 2GB
+
+queue data_file from dataFileNums.txt

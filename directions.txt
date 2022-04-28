@@ -1,0 +1,5 @@
+condor_submit -i interactive.sub
+./getData.sh
+condor_submit project_job1.sub
+./job1postCount.sh
+condor_submit project_job2.sub

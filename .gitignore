@@ -6,6 +6,9 @@ packages.tar.gz
 *.csv.*
 *.log
 job2_*.txt
+latitude.txt
+longitude.txt
+top10Locations
 
 log/
 error/

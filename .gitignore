@@ -8,6 +8,8 @@ packages.tar.gz
 job2_*.txt
 latitude.txt
 longitude.txt
+distance_mlr.txt
+magnitude_mlr.txt
 top10Locations
 top10Time
 

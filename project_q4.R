@@ -3,7 +3,7 @@ rm(list=ls())
 data <- read.csv('./wisconsin.csv', header=FALSE)
 data <- na.omit(data)
 colnames(data) <- c('source_latitude','source_longitude', 'source_depth_km',
-    'source_magnitude','source_distance_km')
+    'source_distance_km', 'source_magnitude',)
 
 # Madison latitude: 43.073051, Madison longitude: -89.401230
 # Latitude upper bound: +5

@@ -8,9 +8,6 @@ fi
 
 # 14: time, 16: latitude, 16: longitude, 
 # 21: depth, 23: magnitude, 28: distance
-# cat data.csv \
-#     | sort -t , -n -k 23 \
-#     | cut -d, -f14,16,17,21,23,28 > data_sorted.csv
 
 FILE_SEP=./data.csv.00
 if test -f "$FILE_SEP";

@@ -34,3 +34,7 @@ condor_submit project_job2.sub
 ## Job3: Linear regression on distance and magnitude
 ### Filter out wisconsin data
 ./project_q4.sh
+
+condor_submit project_job3.sub
+cat magnitude_mlr.txt
+cat distance_mlr.txt

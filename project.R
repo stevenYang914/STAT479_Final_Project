@@ -1,15 +1,17 @@
 rm(list=ls())
 
+# Name the input argument data_num
 args = (commandArgs(trailingOnly=TRUE))
 if (length(args) == 1) {
     data_num = args[1]
 } else {
-    cat('usage: Rscript myscript.R <data number>\n', file=stderr())
+    cat('usage: Rscript project.R <data number>\n', file=stderr())
     stop()
 }
 
 max_int <- as.integer(.Machine$integer.max)
 
+# Read data.csv and assign column names.
 dataFile <- paste('data.csv.', data_num, sep='')
 data <- read.csv(dataFile, header=FALSE)
 colnames(data) <- c(
@@ -26,6 +28,8 @@ colnames(data) <- c(
     'source_distance_km','back_azimuth_deg','snr_db','coda_end_sample',
     'trace_start_time','trace_category','trace_name'
 )
+
+# Select the columns we need and remove NA values.
 data <- na.omit(data)
 var <- c('source_origin_time', 'source_latitude', 
          'source_longitude', 'source_depth_km', 
@@ -39,6 +43,7 @@ df <- df[!(df$source_origin_time == "" | df$source_latitude == "" |
 # colnames(df) <- c('source_origin_time','source_latitude','source_longitude',
 #     'source_depth_km','source_magnitude','source_distance_km')
 
+# Sort and save data as csv file.
 dfSorted <- df[order(df$source_magnitude), ]
 write_filename <- paste('job1_', data_num, sep='')
 write_filename <- paste(write_filename, '.csv', sep='')

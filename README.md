@@ -19,3 +19,7 @@ condor_submit project_job1.sub
 ## Question1: What locations have the most number of earthquakes from 1984-2018?
 ./project_q1.sh
 cat top10Locations
+
+## Question2: What is the most frequent time in the day that an earthquake can happen?
+./project_q2.sh
+cat top10Time

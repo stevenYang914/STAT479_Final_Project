@@ -12,3 +12,6 @@ condor_submit -i interactive.sub
 
 ## Download data and split it into 50 .csv (i.e., data.csv.00)
 ./getData.sh
+
+## Job1: Clean and filter the 50 .csv, output job1_*.csv
+condor_submit project_job1.sub

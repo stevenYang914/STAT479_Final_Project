@@ -15,3 +15,7 @@ condor_submit -i interactive.sub
 
 ## Job1: Clean and filter the 50 .csv, output job1_*.csv
 condor_submit project_job1.sub
+
+## Question1: What locations have the most number of earthquakes from 1984-2018?
+./project_q1.sh
+cat top10Locations

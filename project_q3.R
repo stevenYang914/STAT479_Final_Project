@@ -1,5 +1,6 @@
 rm(list=ls())
 
+# Name the input argument data_num.
 args = (commandArgs(trailingOnly=TRUE))
 if (length(args) == 1) {
     data_num = args[1]
@@ -8,12 +9,15 @@ if (length(args) == 1) {
     stop()
 }
 
+# Read corresponding csv file and assign column names.
 dataFile <- paste('job1_', data_num, sep='')
 dataFile <- paste(dataFile, '.csv', sep='')
 data <- read.csv(dataFile, header=FALSE)
 data <- na.omit(data)
 colnames(data) <- c('source_origin_time','source_latitude','source_longitude',
     'source_depth_km','source_magnitude','source_distance_km')
+
+# Compute mean value of source_depth and source_distance. There are still NA values, so we write the txt file only when it is not NA.
 depth_avg <- mean(data$source_depth_km)
 dist_avg <- mean(data$source_distance_km)
 if (depth_avg != 'NA' && depth_avg != '') {

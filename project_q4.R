@@ -17,10 +17,12 @@ colnames(data) <- c('source_latitude','source_longitude', 'source_depth_km',
 mlr_dist <- lm(source_distance_km ~ source_latitude + source_longitude, data=data)
 mlr_mag <- lm(source_magnitude ~ source_latitude + source_longitude, data=data)
 
+# Print out the regression result for distance of earthquakes.
 sink('distance_mlr.txt')
 print(summary(mlr_dist))
 sink()
 
+# Print out the refression result for magnitude of earthquakes.
 sink('magnitude_mlr.txt')
 print(summary(mlr_mag))
 sink()

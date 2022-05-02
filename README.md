@@ -30,3 +30,7 @@ condor_submit project_job2.sub
 ## Question3: What is the average depth and distance of an earthquake based on this data set?
 ./project_q3_depth.sh
 ./project_q3_dist.sh
+
+## Job3: Linear regression on distance and magnitude
+### Filter out wisconsin data
+./project_q4.sh

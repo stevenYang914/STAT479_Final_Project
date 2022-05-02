@@ -6,3 +6,6 @@ Sirui Chu schu46
 Weiyu Xu wxu232
 
 git clone git@github.com:stevenYang914/STAT479_Final_Project.git
+
+# Install R and related packages
+condor_submit -i interactive.sub

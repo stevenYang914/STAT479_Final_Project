@@ -23,3 +23,6 @@ cat top10Locations
 ## Question2: What is the most frequent time in the day that an earthquake can happen?
 ./project_q2.sh
 cat top10Time
+
+## Job2: Parallel jobs to calculate mean of each csv
+condor_submit project_job2.sub

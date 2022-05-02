@@ -1,5 +1,6 @@
 rm(list=ls())
 
+# Read corresponding csv file and choose need columns.
 data <- read.csv('./wisconsin.csv', header=FALSE)
 data <- na.omit(data)
 colnames(data) <- c('source_latitude','source_longitude', 'source_depth_km', 
@@ -11,6 +12,8 @@ colnames(data) <- c('source_latitude','source_longitude', 'source_depth_km',
 # Longitude upper bound: +5
 # Longitude lower bound: +5
 
+
+# Create MLR modles to predict distance and magnitude with the corresponding explanatory variables.
 mlr_dist <- lm(source_distance_km ~ source_latitude + source_longitude, data=data)
 mlr_mag <- lm(source_magnitude ~ source_latitude + source_longitude, data=data)
 

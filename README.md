@@ -26,3 +26,7 @@ cat top10Time
 
 ## Job2: Parallel jobs to calculate mean of each csv
 condor_submit project_job2.sub
+
+## Question3: What is the average depth and distance of an earthquake based on this data set?
+./project_q3_depth.sh
+./project_q3_dist.sh
